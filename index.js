@@ -12,7 +12,10 @@ import DashboardRoute from './route/DashboardRoute.js';
 const app = express();
 app.use(express.json());
 // Load environment variables from .env file
-app.use(cors());
+app.use(cors({
+  origin:"https://employee-frontend-dti.vercel.app",
+  credentials: true
+}));
 app.use(express.static('public/uploads'))
 // Define routes
 app.use('/api/auth', authRoute);
